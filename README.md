@@ -3,5 +3,5 @@
 ## 例
 
 ```
-curl -s "https://github.com/imagepit/curl-sh/blob/main/setup-nfs.sh" | bash
+curl -s https://raw.githubusercontent.com/imagepit/curl-sh/master/setup-nfs.sh | bash
 ```
