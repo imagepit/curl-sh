@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "test script!!"
+echo "test script!!$1"
