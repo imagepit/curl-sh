@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo $1
+
 # Switch to root
 sudo su -
 
