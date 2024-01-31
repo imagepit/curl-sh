@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo $1
+value=$1
 
 # Switch to root
 sudo su -
@@ -10,7 +10,7 @@ wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudfla
 sudo dpkg -i cloudflared-linux-amd64.deb
 
 # Download Cloudflare Settings
-sh -c "docker run --rm -v .:/root imagepit/vsremo vsremo set $1"
+sudo sh -c "cd /root && docker run --rm -v .:/root imagepit/vsremo vsremo set $value"
 
 # Run Cloudflare Tunnel
-sudo cloudflared --config ~/.cloudflared/config.yml service install
+sudo cloudflared --config /root/.cloudflared/config.yml service install
