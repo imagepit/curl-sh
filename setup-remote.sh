@@ -8,7 +8,7 @@ wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudfla
 sudo dpkg -i cloudflared-linux-amd64.deb
 
 # Download Cloudflare Settings
-docker run --rm -v .:/root imagepit/vsremo vsremo set $1
+sh -c "docker run --rm -v .:/root imagepit/vsremo vsremo set $1"
 
 # Run Cloudflare Tunnel
 sudo cloudflared --config ~/.cloudflared/config.yml service install
