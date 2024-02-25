@@ -14,7 +14,7 @@ sudo systemctl enable --now code-server@$USER
 sleep 1
 # .config/code-server/config.yamlをsedコマンドで編集 127.0.0.1:8080 -> 0.0.0.0:9999、password: "password" -> password: "imagepit"
 sed -i -e 's/bind-addr: 127.0.0.1:8080/bind-addr: 0.0.0.0:9999/g' ~/.config/code-server/config.yaml
-sed -i -e 's/password: .*/password: $pass/g' ~/.config/code-server/config.yaml
+sed -i -e "s/password: .*/password: $pass/g" ~/.config/code-server/config.yaml
 sudo systemctl restart code-server@$USER
 sudo systemctl status code-server@$USER
 
