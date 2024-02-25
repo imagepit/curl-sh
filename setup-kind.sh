@@ -56,7 +56,7 @@ kubeadmConfigPatches:
 EOF
 
 # kindクラスタの作成
-sudo kind create cluster --config kind/cluster.yaml --name kind
+kind create cluster --config kind/cluster.yaml --name kind
 
 # KubernetesノードがREADYになるまで待機
 kubectl wait --for=condition=Ready node --all --timeout=300s
