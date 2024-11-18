@@ -5,15 +5,15 @@ value2=$2
 
 # Install Docker
 sudo curl https://get.docker.com | sh
-sudo usermod -aG docker $USER
+sudo usermod -aG docker ubuntu
 
 # Install code-server
 curl -fsSL https://code-server.dev/install.sh | sh
-sudo systemctl enable --now code-server@$USER
+sudo systemctl enable --now code-server@ubuntu
 # $HOME.config/code-server/config.yamlのパスワード部分とbind-addrを「bind-addr: 0.0.0.0:9999」にsedで書き換え
 sudo sed -i -e "s/password: .*/password: $value2/g" $HOME/.config/code-server/config.yaml
 sudo sed -i -e "s/bind-addr: .*/bind-addr: 0.0.0.0:9999/g" $HOME/.config/code-server/config.yaml
-sudo systemctl restart code-server@$USER
+sudo systemctl restart code-server@ubuntu
 
 # Install Cloudflare CLI
 sudo sh -c "cd /root && wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"
