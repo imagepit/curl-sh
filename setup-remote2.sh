@@ -10,9 +10,11 @@ sudo usermod -aG docker ubuntu
 # Install code-server
 curl -fsSL https://code-server.dev/install.sh | sh
 sudo systemctl enable --now code-server@ubuntu
+# ちょっと待つ
+sleep 5
 # $HOME.config/code-server/config.yamlのパスワード部分とbind-addrを「bind-addr: 0.0.0.0:9999」にsedで書き換え
-sudo sed -i -e "s/password: .*/password: $value2/g" /root/.config/code-server/config.yaml
-sudo sed -i -e "s/bind-addr: .*/bind-addr: 0.0.0.0:9999/g" /root/.config/code-server/config.yaml
+sudo sed -i -e "s/password: .*/password: $value2/g" $HOME/.config/code-server/config.yaml
+sudo sed -i -e "s/bind-addr: .*/bind-addr: 0.0.0.0:9999/g" $HOME/.config/code-server/config.yaml
 sudo systemctl restart code-server@ubuntu
 
 # Install Cloudflare CLI
