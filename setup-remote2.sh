@@ -3,11 +3,6 @@
 value1=$1
 value2=$2
 
-# Slackに通知を送信
-slack_webhook_url="https://hooks.slack.com/services/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"
-slack_message="セットアップが完了しました。\nvalue1: $value1\nvalue2: $value2"
-curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"$slack_message\"}" $slack_webhook_url
-
 # Install Docker
 sudo curl https://get.docker.com | sh
 sudo usermod -aG docker ubuntu
