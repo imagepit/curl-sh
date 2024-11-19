@@ -10,4 +10,4 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} # conoha wing構築時で生成された秘密鍵
       - name: rsync deploy for web text
-        run: rsync -rptgDvz --delete -e "ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 8022" ./dist/* c3095911@www234.conoha.ne.jp:/home/c3095911/public_html/sh.dx-training.net
+        run: rsync -rptgDvz --delete -e "ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 8022" ./* c3095911@www234.conoha.ne.jp:/home/c3095911/public_html/sh.dx-training.net
