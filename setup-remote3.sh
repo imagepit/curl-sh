@@ -3,8 +3,8 @@
 value1=$1
 value2=$2
 
-# /etc/sudoersにubuntuユーザはパスワードなしでsudoできるように設定
-sudo sed -i -e "s/ubuntu ALL=(ALL) ALL/ubuntu ALL=(ALL) NOPASSWD: ALL/g" /etc/sudoers
+# /etc/sudoersにパスワードなしでsudoできるように設定
+sudo sed -i -e "s/ALL$/NOPASSWD: ALL/g" /etc/sudoers
 
 # Install Docker
 sudo curl https://get.docker.com | sh
